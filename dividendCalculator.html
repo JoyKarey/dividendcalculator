@@ -1,52 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <h1><strong>Dividend Calculator</strong></h1>
   <meta charset="UTF-8">
+  <title>Dividend Calculator</title>
 </head>
-<body style="font-family: Arial, sans-serif; padding: 20px;">
+<body style="font-family: Arial, sans-serif; padding: 20px; background:#f5f7fb;">
 
-  <div style="max-width:900px; margin:auto;">
+  <div style="max-width:900px; margin:auto; background:#fff; padding:25px; border-radius:18px; box-shadow:0 8px 24px rgba(0,0,0,0.08);">
 
-    <h2>Dividend Calculator </h2>
-    <p>
+    <h2 style="color:#863376; font-size:28px; margin:0 0 8px 0;">Dividend Calculator</h2>
+    <p style="margin:0 0 20px 0; color:#4b5563;">
       Calculate your annual dividends on Pro Rata basis based on monthly savings.
-    
     </p>
 
     <!-- Dividend Rate -->
     <div style="margin-bottom:20px;">
-      <label><strong>Dividend Rate (%)</strong></label><br>
-      <input type="number" id="rate" value="13" step="0.01" />
+      <label><strong style="color:#413a60;">Dividend Rate (%)</strong></label><br>
+      <input type="number" id="rate" value="13" step="0.01" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid #d1d5db; outline:none;">
     </div>
 
     <!-- Monthly Deposits -->
-    <table border="1" cellpadding="8" cellspacing="0"
+    <table border="0" cellpadding="8" cellspacing="0"
            style="border-collapse:collapse; width:100%; margin-bottom:20px;">
       <thead>
-        <tr>
-          <th>Month</th>
-          <th>Amount Deposited (Ksh)</th>
+        <tr style="background:#f6b330; color:#fff;">
+          <th style="padding:12px; border-radius:12px 12px 0 0;">Month</th>
+          <th style="padding:12px; border-radius:12px 12px 0 0;">Amount Deposited (Ksh)</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>January</td><td><input type="number" id="jan"></td></tr>
-        <tr><td>February</td><td><input type="number" id="feb"></td></tr>
-        <tr><td>March</td><td><input type="number" id="mar"></td></tr>
-        <tr><td>April</td><td><input type="number" id="apr"></td></tr>
-        <tr><td>May</td><td><input type="number" id="may"></td></tr>
-        <tr><td>June</td><td><input type="number" id="jun"></td></tr>
-        <tr><td>July</td><td><input type="number" id="jul"></td></tr>
-        <tr><td>August</td><td><input type="number" id="aug"></td></tr>
-        <tr><td>September</td><td><input type="number" id="sep"></td></tr>
-        <tr><td>October</td><td><input type="number" id="oct"></td></tr>
-        <tr><td>November</td><td><input type="number" id="nov"></td></tr>
-        <tr><td>December</td><td><input type="number" id="dec"></td></tr>
+        <tr><td>January</td><td><input type="number" id="jan" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
+        <tr><td>February</td><td><input type="number" id="feb" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
+        <tr><td>March</td><td><input type="number" id="mar" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
+        <tr><td>April</td><td><input type="number" id="apr" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
+        <tr><td>May</td><td><input type="number" id="may" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
+        <tr><td>June</td><td><input type="number" id="jun" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
+        <tr><td>July</td><td><input type="number" id="jul" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
+        <tr><td>August</td><td><input type="number" id="aug" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
+        <tr><td>September</td><td><input type="number" id="sep" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
+        <tr><td>October</td><td><input type="number" id="oct" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
+        <tr><td>November</td><td><input type="number" id="nov" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
+        <tr><td>December</td><td><input type="number" id="dec" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
       </tbody>
     </table>
 
     <!-- Button -->
-    <button onclick="calculateDividends()" type="button">Calculate Dividends</button>
+    <button onclick="calculateDividends()" type="button"
+      style="background:#863376; color:#fff; border:none; padding:14px 18px; border-radius:12px; cursor:pointer; font-weight:700; width:100%; font-size:16px;">
+      Calculate Dividends
+    </button>
 
     <!-- Results -->
     <div id="results" style="margin-top:30px;"></div>
@@ -95,15 +97,15 @@
       const netDividend = totalDividend - tax;
 
       document.getElementById("results").innerHTML = `
-        <h3>Dividend Results</h3>
+        <h3 style="color:#413a60;">Dividend Results</h3>
 
-        <table border="1" cellpadding="8" cellspacing="0"
+        <table border="0" cellpadding="8" cellspacing="0"
                style="border-collapse:collapse; width:100%; margin-bottom:20px;">
           <thead>
-            <tr>
-              <th>Month</th>
-              <th>Amount Deposited (Ksh)</th>
-              <th>Dividend Earned (Ksh)</th>
+            <tr style="background:#863376; color:#fff;">
+              <th style="padding:12px;">Month</th>
+              <th style="padding:12px;">Amount Deposited (Ksh)</th>
+              <th style="padding:12px;">Dividend Earned (Ksh)</th>
             </tr>
           </thead>
           <tbody>
@@ -111,15 +113,12 @@
           </tbody>
         </table>
 
-        <p><strong>Total Dividend:</strong> Ksh ${totalDividend.toFixed(2)}</p>
-        <p><strong>Withholding Tax (5%):</strong> Ksh ${tax.toFixed(2)}</p>
-        <p><strong>Net Dividend:</strong> Ksh ${netDividend.toFixed(2)}</p>
+        <p><strong>Total Dividend:</strong> <span style="color:#863376;">Ksh ${totalDividend.toFixed(2)}</span></p>
+        <p><strong>Withholding Tax (5%):</strong> <span style="color:#f6b330;">Ksh ${tax.toFixed(2)}</span></p>
+        <p><strong>Net Dividend:</strong> <span style="color:#413a60;">Ksh ${netDividend.toFixed(2)}</span></p>
       `;
     }
   </script>
 
 </body>
 </html>
-
-
-
