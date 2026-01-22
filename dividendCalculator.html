@@ -113,9 +113,12 @@
           </tbody>
         </table>
 
-        <p><strong>Total Dividend:</strong> <span style="color:#863376;">Ksh ${totalDividend.toFixed(2)}</span></p>
-        <p><strong>Withholding Tax (5%):</strong> <span style="color:#f6b330;">Ksh ${tax.toFixed(2)}</span></p>
-        <p><strong>Net Dividend:</strong> <span style="color:#413a60;">Ksh ${netDividend.toFixed(2)}</span></p>
+        <p style="color:#000;"><strong>Total Dividend:</strong> <span style="color:#000;">Ksh ${totalDividend.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}</span></p>
+        <p style="color:#000;"><strong>Withholding Tax (5%):</strong> <span style="color:#000;">Ksh ${tax.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}</span></p>
+
+        <p style="background:#413a60; color:#fff; padding:12px 14px; border-radius:12px; font-weight:700;">
+          Net Dividend: Ksh ${netDividend.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}
+        </p>
 
       `;
     }
@@ -123,5 +126,3 @@
 
 </body>
 </html>
-
-
