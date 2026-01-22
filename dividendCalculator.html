@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dividend Calculator</title>
+  <meta charset="UTF-8">
+</head>
+<body style="font-family: Arial, sans-serif; padding: 20px;">
+
+  <div style="max-width:900px; margin:auto;">
+
+    <h2>Dividend Calculator (Self-Service)</h2>
+    <p>
+      Estimate your annual dividends based on monthly savings.
+      This tool does <strong>not</strong> store any data.
+    </p>
+
+    <!-- Dividend Rate -->
+    <div style="margin-bottom:20px;">
+      <label><strong>Dividend Rate (%)</strong></label><br>
+      <input type="number" id="rate" value="13" step="0.01" />
+    </div>
+
+    <!-- Monthly Deposits -->
+    <table border="1" cellpadding="8" cellspacing="0"
+           style="border-collapse:collapse; width:100%; margin-bottom:20px;">
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Amount Deposited (Ksh)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>January</td><td><input type="number" id="jan"></td></tr>
+        <tr><td>February</td><td><input type="number" id="feb"></td></tr>
+        <tr><td>March</td><td><input type="number" id="mar"></td></tr>
+        <tr><td>April</td><td><input type="number" id="apr"></td></tr>
+        <tr><td>May</td><td><input type="number" id="may"></td></tr>
+        <tr><td>June</td><td><input type="number" id="jun"></td></tr>
+        <tr><td>July</td><td><input type="number" id="jul"></td></tr>
+        <tr><td>August</td><td><input type="number" id="aug"></td></tr>
+        <tr><td>September</td><td><input type="number" id="sep"></td></tr>
+        <tr><td>October</td><td><input type="number" id="oct"></td></tr>
+        <tr><td>November</td><td><input type="number" id="nov"></td></tr>
+        <tr><td>December</td><td><input type="number" id="dec"></td></tr>
+      </tbody>
+    </table>
+
+    <!-- Button -->
+    <button onclick="calculateDividends()" type="button">Calculate Dividends</button>
+
+    <!-- Results -->
+    <div id="results" style="margin-top:30px;"></div>
+
+  </div>
+
+  <script>
+    function calculateDividends() {
+
+      const rate = parseFloat(document.getElementById("rate").value) || 0;
+
+      const months = [
+        { name: "January", id: "jan", factor: 12 },
+        { name: "February", id: "feb", factor: 11 },
+        { name: "March", id: "mar", factor: 10 },
+        { name: "April", id: "apr", factor: 9 },
+        { name: "May", id: "may", factor: 8 },
+        { name: "June", id: "jun", factor: 7 },
+        { name: "July", id: "jul", factor: 6 },
+        { name: "August", id: "aug", factor: 5 },
+        { name: "September", id: "sep", factor: 4 },
+        { name: "October", id: "oct", factor: 3 },
+        { name: "November", id: "nov", factor: 2 },
+        { name: "December", id: "dec", factor: 1 }
+      ];
+
+      let totalDividend = 0;
+      let rows = "";
+
+      months.forEach(m => {
+        const deposit = parseFloat(document.getElementById(m.id).value) || 0;
+        const dividend = (rate / 100) * deposit * (m.factor / 12);
+
+        totalDividend += dividend;
+
+        rows += `
+          <tr>
+            <td>${m.name}</td>
+            <td>${deposit.toLocaleString()}</td>
+            <td>${dividend.toFixed(2)}</td>
+          </tr>
+        `;
+      });
+
+      const tax = totalDividend * 0.05;
+      const netDividend = totalDividend - tax;
+
+      document.getElementById("results").innerHTML = `
+        <h3>Dividend Results</h3>
+
+        <table border="1" cellpadding="8" cellspacing="0"
+               style="border-collapse:collapse; width:100%; margin-bottom:20px;">
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>Amount Deposited (Ksh)</th>
+              <th>Dividend Earned (Ksh)</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${rows}
+          </tbody>
+        </table>
+
+        <p><strong>Total Dividend:</strong> Ksh ${totalDividend.toFixed(2)}</p>
+        <p><strong>Withholding Tax (5%):</strong> Ksh ${tax.toFixed(2)}</p>
+        <p><strong>Net Dividend:</strong> Ksh ${netDividend.toFixed(2)}</p>
+      `;
+    }
+  </script>
+
+</body>
+</html>
