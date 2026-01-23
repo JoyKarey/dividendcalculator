@@ -43,16 +43,76 @@
           </td>
           <td><input type="number" id="feb" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td>
         </tr>
-        <tr><td>March</td><td><input type="number" id="mar" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
-        <tr><td>April</td><td><input type="number" id="apr" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
-        <tr><td>May</td><td><input type="number" id="may" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
-        <tr><td>June</td><td><input type="number" id="jun" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
-        <tr><td>July</td><td><input type="number" id="jul" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
-        <tr><td>August</td><td><input type="number" id="aug" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
-        <tr><td>September</td><td><input type="number" id="sep" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
-        <tr><td>October</td><td><input type="number" id="oct" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
-        <tr><td>November</td><td><input type="number" id="nov" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
-        <tr><td>December</td><td><input type="number" id="dec" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
+        <tr>
+          <td>
+            March<br>
+            <span style="font-size:12px; color:#6b7280;">(Amount deposited via Cash/Paybill/By-product)</span>
+          </td>
+          <td><input type="number" id="mar" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td>
+        </tr>
+        <tr>
+          <td>
+            April<br>
+            <span style="font-size:12px; color:#6b7280;">(Amount deposited via Cash/Paybill/By-product)</span>
+          </td>
+          <td><input type="number" id="apr" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td>
+        </tr>
+        <tr>
+          <td>
+            May<br>
+            <span style="font-size:12px; color:#6b7280;">(Amount deposited via Cash/Paybill/By-product)</span>
+          </td>
+          <td><input type="number" id="may" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td>
+        </tr>
+        <tr>
+          <td>
+            June<br>
+            <span style="font-size:12px; color:#6b7280;">(Amount deposited via Cash/Paybill/By-product)</span>
+          </td>
+          <td><input type="number" id="jun" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td>
+        </tr>
+        <tr>
+          <td>
+            July<br>
+            <span style="font-size:12px; color:#6b7280;">(Amount deposited via Cash/Paybill/By-product)</span>
+          </td>
+          <td><input type="number" id="jul" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td>
+        </tr>
+        <tr>
+          <td>
+            August<br>
+            <span style="font-size:12px; color:#6b7280;">(Amount deposited via Cash/Paybill/By-product)</span>
+          </td>
+          <td><input type="number" id="aug" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td>
+        </tr>
+        <tr>
+          <td>
+            September<br>
+            <span style="font-size:12px; color:#6b7280;">(Amount deposited via Cash/Paybill/By-product)</span>
+          </td>
+          <td><input type="number" id="sep" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td>
+        </tr>
+        <tr>
+          <td>
+            October<br>
+            <span style="font-size:12px; color:#6b7280;">(Amount deposited via Cash/Paybill/By-product)</span>
+          </td>
+          <td><input type="number" id="oct" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td>
+        </tr>
+        <tr>
+          <td>
+            November<br>
+            <span style="font-size:12px; color:#6b7280;">(Amount deposited via Cash/Paybill/By-product)</span>
+          </td>
+          <td><input type="number" id="nov" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td>
+        </tr>
+        <tr>
+          <td>
+            December<br>
+            <span style="font-size:12px; color:#6b7280;">(Amount deposited via Cash/Paybill/By-product)</span>
+          </td>
+          <td><input type="number" id="dec" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td>
+        </tr>
       </tbody>
     </table>
 
@@ -68,6 +128,13 @@
   </div>
 
   <script>
+    // AUTO-FILL FROM FEB TO DEC
+    document.getElementById("feb").addEventListener("input", function() {
+      const value = this.value;
+      const months = ["mar","apr","may","jun","jul","aug","sep","oct","nov","dec"];
+      months.forEach(id => document.getElementById(id).value = value);
+    });
+
     function calculateDividends() {
 
       const rate = parseFloat(document.getElementById("rate").value) || 0;
