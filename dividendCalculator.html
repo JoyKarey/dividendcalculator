@@ -2,6 +2,18 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <style>
+  /* Remove spinner arrows on number inputs */
+  input[type=number]::-webkit-outer-spin-button,
+  input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type=number] {
+    -moz-appearance: textfield; /* Firefox */
+  }
+</style>
   <title>Dividend Calculator</title>
 </head>
 <body style="font-family: Arial, sans-serif; padding: 20px; background:#f5f7fb;">
@@ -204,3 +216,4 @@
 
 </body>
 </html>
+
