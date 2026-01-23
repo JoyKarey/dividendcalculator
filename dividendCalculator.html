@@ -29,8 +29,20 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td>January</td><td><input type="number" id="jan" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
-        <tr><td>February</td><td><input type="number" id="feb" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
+        <tr>
+          <td>
+            January<br>
+            <span style="font-size:12px; color:#6b7280;">(Bal b/f + January deposit)</span>
+          </td>
+          <td><input type="number" id="jan" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td>
+        </tr>
+        <tr>
+          <td>
+            February<br>
+            <span style="font-size:12px; color:#6b7280;">(Amount deposited via Cash/Paybill/By-product)</span>
+          </td>
+          <td><input type="number" id="feb" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td>
+        </tr>
         <tr><td>March</td><td><input type="number" id="mar" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
         <tr><td>April</td><td><input type="number" id="apr" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
         <tr><td>May</td><td><input type="number" id="may" style="width:100%; padding:8px 10px; border-radius:10px; border:1px solid #d1d5db;"></td></tr>
@@ -116,7 +128,7 @@
         <p style="color:#000;"><strong>Total Dividend:</strong> <span style="color:#000;">Ksh ${totalDividend.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}</span></p>
         <p style="color:#000;"><strong>Withholding Tax (5%):</strong> <span style="color:#000;">Ksh ${tax.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}</span></p>
 
-        <p style="background:#f6b330; color:#fff; padding:12px 14px; border-radius:12px; font-weight:700;">
+        <p style="background:#413a60; color:#fff; padding:12px 14px; border-radius:12px; font-weight:700;">
           Net Dividend: Ksh ${netDividend.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}
         </p>
       `;
@@ -125,5 +137,3 @@
 
 </body>
 </html>
-
-
